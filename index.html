@@ -8499,6 +8499,130 @@
     height:64% !important;
   }
 
+
+  /* --- V89 : Honor / tablette-paysage uniquement ---
+     Ne modifie pas la version ordinateur.
+     Objectifs :
+     - aucune superposition Récompenses / rivière ;
+     - aucune carte ne dépasse de la zone rivière ;
+     - proportions Magic conservées ;
+     - emplacements visiteurs légèrement réduits et toujours fixes. */
+  @media (max-width:1700px) and (max-height:850px){
+
+    /* La zone conserve exactement ses dimensions actuelles.
+       On ne fait que réduire le contenu à l'intérieur. */
+    body.mode-two .board-stage,
+    body.mode-three .board-stage{
+      grid-template-columns:max-content minmax(0,1fr) !important;
+      column-gap:6px !important;
+      overflow:hidden !important;
+    }
+
+    body.mode-two .reward-zone,
+    body.mode-three .reward-zone{
+      display:flex !important;
+      flex-direction:row !important;
+      flex-wrap:nowrap !important;
+      align-items:center !important;
+      justify-content:flex-start !important;
+      gap:5px !important;
+      width:max-content !important;
+      max-width:none !important;
+      overflow:visible !important;
+    }
+
+    body.mode-two .reward-row,
+    body.mode-three .reward-row{
+      display:flex !important;
+      flex-direction:row !important;
+      flex-wrap:nowrap !important;
+      gap:5px !important;
+      margin:0 !important;
+      width:max-content !important;
+    }
+
+    /* MODE contre 1 joueur virtuel :
+       Récompenses et rivière légèrement plus petites. */
+    body.mode-two .reward-central{
+      height:150px !important;
+      width:auto !important;
+      aspect-ratio:364/527 !important;
+      flex:0 0 auto !important;
+    }
+
+    body.mode-two #grid{
+      display:flex !important;
+      flex-wrap:nowrap !important;
+      align-items:center !important;
+      justify-content:center !important;
+      gap:7px !important;
+      min-width:0 !important;
+      max-width:100% !important;
+      overflow:hidden !important;
+    }
+
+    body.mode-two #grid .card.img-card,
+    body.mode-two #grid .board-card,
+    body.mode-two .board-card{
+      height:168px !important;
+      min-height:168px !important;
+      max-height:168px !important;
+      width:auto !important;
+      aspect-ratio:63/88 !important;
+      flex:0 0 auto !important;
+    }
+
+    /* MODE contre 2 joueurs virtuels :
+       3 Récompenses + 4 cartes rivière doivent tenir ensemble. */
+    body.mode-three .reward-central{
+      height:132px !important;
+      width:auto !important;
+      aspect-ratio:364/527 !important;
+      flex:0 0 auto !important;
+    }
+
+    body.mode-three #grid{
+      display:flex !important;
+      flex-wrap:nowrap !important;
+      align-items:center !important;
+      justify-content:center !important;
+      gap:6px !important;
+      min-width:0 !important;
+      max-width:100% !important;
+      overflow:hidden !important;
+    }
+
+    body.mode-three #grid .card.img-card,
+    body.mode-three #grid .board-card,
+    body.mode-three .board-card{
+      height:150px !important;
+      min-height:150px !important;
+      max-height:150px !important;
+      width:auto !important;
+      aspect-ratio:63/88 !important;
+      flex:0 0 auto !important;
+    }
+
+    /* Ta zone personnelle uniquement :
+       taille FIXE de 19 px, identique pour 1 à 5 emplacements. */
+    body.mode-two #collection .card.img-card.has-clean-footer,
+    body.mode-three #collection .card.img-card.has-clean-footer{
+      --clean-slot-size:19px !important;
+      --clean-slot-gap:2px !important;
+    }
+
+    body.mode-two #collection .card.img-card.has-clean-footer .slot.slot-pin,
+    body.mode-three #collection .card.img-card.has-clean-footer .slot.slot-pin{
+      width:19px !important;
+      height:19px !important;
+      min-width:19px !important;
+      min-height:19px !important;
+      max-width:19px !important;
+      max-height:19px !important;
+      flex:0 0 19px !important;
+    }
+  }
+
 </style>
 </head>
 <body>
